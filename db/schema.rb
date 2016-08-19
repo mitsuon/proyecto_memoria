@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819012946) do
+ActiveRecord::Schema.define(version: 20160819023015) do
 
   create_table "carreras", force: :cascade do |t|
     t.string   "nombre"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20160819012946) do
     t.string   "plan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "carrera_id"
   end
+
+  add_index "mallas", ["plan", "carrera_id"], name: "index_mallas_on_plan_and_carrera_id", unique: true
 
 end
