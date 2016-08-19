@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819023015) do
+ActiveRecord::Schema.define(version: 20160819031940) do
 
   create_table "carreras", force: :cascade do |t|
     t.string   "nombre"
@@ -27,5 +27,14 @@ ActiveRecord::Schema.define(version: 20160819023015) do
   end
 
   add_index "mallas", ["plan", "carrera_id"], name: "index_mallas_on_plan_and_carrera_id", unique: true
+
+  create_table "modulos", force: :cascade do |t|
+    t.text     "nombre"
+    t.string   "codigo"
+    t.integer  "creditos"
+    t.integer  "nivel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
