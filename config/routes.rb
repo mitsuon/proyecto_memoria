@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mallas
   resources :carreras
   get 'carreras/index'
   get 'carreras/show'
