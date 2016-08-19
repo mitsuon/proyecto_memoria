@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Plan</th>
+      <th>Carrera</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +16,8 @@
     <% @mallas.each do |malla| %>
       <tr>
         <td><%= malla.plan %></td>
+        <td><%= malla.carrera.nombre %></td>
+
         <td><%= link_to 'Ver', malla %></td>
         <td><%= link_to 'Editar', edit_malla_path(malla) %></td>
         <td><%= link_to 'Eliminar', malla, method: :delete, data: { confirm: 'Are you sure?' } %></td>
