@@ -5,7 +5,8 @@
   <%= @malla.plan %>
   
   <strong>Carrera:</strong>
-  <%= @malla.carrera.nombre %>
+  <%= @malla.carrera ? @malla.carrera.nombre : "Sin carrera asociada" %>
+
 </p>
 
 <%= link_to 'Editar', edit_malla_path(@malla) %> |

@@ -16,7 +16,7 @@
     <% @mallas.each do |malla| %>
       <tr>
         <td><%= malla.plan %></td>
-        <td><%= malla.carrera.nombre %></td>
+        <td><%= malla.carrera ? malla.carrera.nombre : "Sin carrera asociada" %></td>
 
         <td><%= link_to 'Ver', malla %></td>
         <td><%= link_to 'Editar', edit_malla_path(malla) %></td>
