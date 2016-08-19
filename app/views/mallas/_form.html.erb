@@ -8,12 +8,16 @@
      <% end %>
     </ul>
    </div>
-<% end %>
+  <% end %>
 
   <div class="field">
     <%= f.label :plan %><br>
-    <%= f.text_field :plan %>
-  </div>
+    <%= f.text_field :plan %> <br>
+    
+    <%= f.label :carrera_id %> <br>
+    <%= f.select :carrera_id, Carrera.all.collect {|c| [ c.nombre, c.id ] }%>
+    
+  </div> 
   <div class="actions">
     <%= f.submit %>
   </div>

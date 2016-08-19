@@ -15,17 +15,19 @@ class MallasController < ApplicationController
   # GET /mallas/new
   def new
     @malla = Malla.new
+    @carreras = Carrera.all
   end
 
   # GET /mallas/1/edit
   def edit
+  
   end
 
   # POST /mallas
   # POST /mallas.json
   def create
     @malla = Malla.new(malla_params)
-
+    @carreras = Carrera.all
     respond_to do |format|
       if @malla.save
         format.html { redirect_to @malla, notice: 'Malla creada exitosamente.' }
@@ -69,6 +71,6 @@ class MallasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def malla_params
-      params.require(:malla).permit(:plan)
+      params.require(:malla).permit(:plan, :carrera_id)
     end
 end
