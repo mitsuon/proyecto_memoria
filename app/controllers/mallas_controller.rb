@@ -63,6 +63,12 @@ class MallasController < ApplicationController
     end
   end
 
+  def remove_carrera
+    malla = Malla.find(params[:id])
+    malla.carrera = nil
+    malla.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_malla

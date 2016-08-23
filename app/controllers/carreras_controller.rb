@@ -65,6 +65,7 @@ class CarrerasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +75,6 @@ class CarrerasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carrera_params
-      params.require(:carrera).permit(:nombre)
+      params.require(:carrera).permit(:nombre,mallas_attributes: [:plan, :id])
     end
 end

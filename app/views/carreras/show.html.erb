@@ -5,5 +5,28 @@
   <%= @carrera.nombre %>
 </p>
 
-<%= link_to 'Edit', edit_carrera_path(@carrera) %> |
-<%= link_to 'Back', carreras_path %>
+
+<% if @carrera.mallas.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Mallas asociadas</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @carrera.mallas.each do |malla| %>
+        <tr>
+          <td><%= link_to malla.plan, malla %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+ <h4> Carrera sin mallas asociadas </h4>
+<% end %>
+
+
+<%= link_to 'Editar', edit_carrera_path(@carrera) %> |
+<%= link_to 'Volver', carreras_path %>
