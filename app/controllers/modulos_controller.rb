@@ -25,10 +25,10 @@ class ModulosController < ApplicationController
   # POST /modulos.json
   def create
     @modulo = Modulo.new(modulo_params)
-
+    @malla = Malla.all()
     respond_to do |format|
       if @modulo.save
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully created.' }
+        format.html { redirect_to @modulo, notice: 'Modulo creado exitosamente.' }
         format.json { render :show, status: :created, location: @modulo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ModulosController < ApplicationController
   def update
     respond_to do |format|
       if @modulo.update(modulo_params)
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully updated.' }
+        format.html { redirect_to @modulo, notice: 'Modulo actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @modulo }
       else
         format.html { render :edit }
@@ -54,9 +54,11 @@ class ModulosController < ApplicationController
   # DELETE /modulos/1
   # DELETE /modulos/1.json
   def destroy
+    @modulo.malla_id = nil
+    @modulo.save
     @modulo.destroy
     respond_to do |format|
-      format.html { redirect_to modulos_url, notice: 'Modulo was successfully destroyed.' }
+      format.html { redirect_to modulos_url, notice: 'Modulo eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class ModulosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modulo_params
-      params.require(:modulo).permit(:nombre, :codigo, :creditos, :nivel)
+      params.require(:modulo).permit(:nombre, :codigo, :creditos, :nivel, :malla_id)
     end
 end

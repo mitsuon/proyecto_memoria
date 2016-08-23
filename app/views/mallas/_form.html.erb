@@ -15,7 +15,8 @@
     <%= f.text_field :plan %> <br>
     
     <%= f.label :carrera_id %> <br>
-    <%= f.select :carrera_id, Carrera.all.collect {|c| [ c.nombre, c.id ] }%>
+    <%= f.select :carrera_id, Carrera.all.collect {|c| [ c.nombre, c.id ] }, {:include_blank => true}%>
+    
     
   </div> 
   <div class="actions">

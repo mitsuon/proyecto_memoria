@@ -56,17 +56,13 @@ class MallasController < ApplicationController
   # DELETE /mallas/1
   # DELETE /mallas/1.json
   def destroy
+    @malla.carrera_id = nil
+    @malla.save
     @malla.destroy
     respond_to do |format|
       format.html { redirect_to mallas_url, notice: 'Malla eliminada exitosamente.' }
       format.json { head :no_content }
     end
-  end
-
-  def remove_carrera
-    malla = Malla.find(params[:id])
-    malla.carrera = nil
-    malla.save
   end
 
   private

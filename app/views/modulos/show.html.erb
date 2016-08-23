@@ -20,5 +20,8 @@
   <%= @modulo.nivel %>
 </p>
 
+<strong>Plan:</strong>
+<%= @modulo.malla ? @modulo.malla.plan : "Sin carrera asociada" %> </br>
+
 <%= link_to 'Editar', edit_modulo_path(@modulo) %> |
 <%= link_to 'Volver', modulos_path %>

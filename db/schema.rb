@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819031940) do
+ActiveRecord::Schema.define(version: 20160823204412) do
 
   create_table "carreras", force: :cascade do |t|
     t.string   "nombre"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160819031940) do
     t.integer  "nivel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "malla_id"
   end
 
 end
